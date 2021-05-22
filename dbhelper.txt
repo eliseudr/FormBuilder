@@ -1,0 +1,22 @@
+// Table responsavel por armazenar os dados do formulario
+
+CREATE TABLE form (
+id INT(11) NOT NULL AUTO_INCREMENT,
+texto VARCHAR(255) DEFAULT NULL,
+data_minima timestamp NULL,
+data_maxima timestamp NULL,
+qtd_opcoes_lista_suspensa INT(11) DEFAULT NULL,
+qtd_respostas_min INT(11) DEFAULT 1,
+qtd_respostas_max INT(11) DEFAULT NULL,
+PRIMARY KEY (id)
+)
+
+// Table responsavel por armazenar as questoes e relacionar com o ID do formulario
+
+CREATE TABLE form_opcoes (
+id INT(11) NOT NULL AUTO_INCREMENT,
+opcao VARCHAR(255) DEFAULT NULL,
+id_form INT(11),
+PRIMARY KEY (id),
+FOREIGN KEY (id_form) REFERENCES form(id)
+)
