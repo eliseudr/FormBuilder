@@ -1,15 +1,20 @@
+"use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes, nomeTable = "form") => {
   class BuildForm extends Model {}
   BuildForm.init(
     {
-      Text: DataTypes.STRING,
-      Email: DataTypes.STRING,
-      Data: DataTypes.BOOLEAN,
-      lista_suspensa: BOOLEAN,
-      multipla_opcao: BOOLEAN,
-      created_at: DataTypes.DATE,
-      id_pessoa: DataTypes.INTEGER,
+      texto: DataTypes.STRING,
+      email: DataTypes.STRING,
+      data_minima: DataTypes.DATE,
+      data_maxima: DataTypes.DATE,
+      qtd_opcoes_lista_suspensa: DataTypes.INTEGER,
+      qtd_respostas_min: DataTypes.INTEGER, 
+      qtd_respostas_max: DataTypes.INTEGER, 
+      // id_pessoa: {
+      //   type: Sequelize.INTEGER,
+      // },
     },
     {
       sequelize,

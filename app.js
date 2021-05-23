@@ -6,16 +6,18 @@ app.listen(
     () => console.log(`server is runing on http://localhost:${port}`)
 );
 
-// Endpoints
 const buildForm = require("./api/routes/build_form");
-const validadeForm = require("./api/routes/validade_form");
+const validateForm = require("./api/routes/validade_form");
+
+// Endpoints
+app.use("/build_form", buildForm);
 
 // Trata o erro 404 de endpoint não encontrado.
- app.use((req, res, next) => {
-    const error = Error(strings.errorNotFound);
-    error.status = 404;
-    next(error);
-  });
+app.use((req, res, next) => {
+  const error = Error(strings.errorNotFound);
+  error.status = 404;
+  next(error);
+});
 
 // Todos os outros erros são passados para aqui e designados como erro interno do servidor (500).
 app.use((error, req, res, next) => {
