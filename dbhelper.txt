@@ -1,15 +1,35 @@
+// Table responsavel por armazenar as regras de validaçao do form
+
+CREATE TABLE form_config (
+id INT(1) NOT NULL AUTO_INCREMENT,
+texto_tam_exato INT(11) DEFAULT NULL,
+texto_tam_minimo INT(11) DEFAULT NULL,
+texto_tam_maximo INT(11) DEFAULT NULL,
+texto_palavras_min INT(11) DEFAULT NULL,
+texto_palavras_max INT(11) DEFAULT NULL,
+email_dominio VARCHAR(255) DEFAULT NULL,
+data_minima TIMESTAMP NULL,
+data_maxima TIMESTAMP NULL,
+qtd_respostas_min INT(11) DEFAULT NULL,
+qtd_respostas_max INT(11) DEFAULT NULL,
+PRIMARY KEY (id)
+);
+
 // Table responsavel por armazenar os dados do formulario
 
-CREATE TABLE form (
+CREATE TABLE forms (
 id INT(11) NOT NULL AUTO_INCREMENT,
 texto VARCHAR(255) DEFAULT NULL,
+email VARCHAR(50) DEFAULT NULL,
 data_minima timestamp NULL,
 data_maxima timestamp NULL,
 qtd_opcoes_lista_suspensa INT(11) DEFAULT NULL,
 qtd_respostas_min INT(11) DEFAULT 1,
 qtd_respostas_max INT(11) DEFAULT NULL,
-PRIMARY KEY (id)
-)
+id_form_config INT(11) NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (id_form_config) REFERENCES form_config(id)
+);
 
 // Table responsavel por armazenar as questoes e relacionar com o ID do formulario
 
@@ -20,3 +40,31 @@ id_form INT(11),
 PRIMARY KEY (id),
 FOREIGN KEY (id_form) REFERENCES form(id)
 )
+
+******** JSON *********
+
+// JSON example for the endpoint /build_form
+{
+        "texto": "Formulario",
+        "email": "test@hotmail.com",
+        "data_minima": "",
+        "data_maxima": "",
+        "qtd_opcoes_lista_suspensa": 1,
+        "qtd_respostas_min": 1,
+        "qtd_respostas_max": ""
+	"id_form_config": 1,
+}
+
+// JSON example for the endpoint /form_config
+{
+    "texto_tam_exato": null,
+    "texto_tam_minimo": 1,
+    "texto_tam_maximo": null,
+    "texto_palavras_min": 5,
+    "texto_palavras_maxima": 300,
+    "email_dominio": "hotmail.com, gmail.com, outlook.com, yahoo.com",
+    "data_minima": "2021-05-23 23:59",
+    "data_maxima": "2021-05-30 00:01",
+    "qtd_respostas_min": 1,
+    "qtd_respostas_max": 1
+}
