@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const SetFormConfig = require("../models/set_formConfig");
+const FormConfig = require("../models/formConfig");
 const helpers = require("../helpers/helpers");
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
     var sequelize = helpers.getSequelize(req.query.nomedb);
 
     try {
-      await SetFormConfig(
+      await FormConfig(
         sequelize,
         Sequelize.DataTypes,
       ).create({
@@ -15,7 +15,7 @@ module.exports = {
         texto_tam_minimo: req.body.texto_tam_minimo,
         texto_tam_maximo: req.body.texto_tam_maximo,
         texto_palavras_min: req.body.texto_palavras_min,
-        texto_palavras_maximo: req.body.texto_palavras_maximo,
+        texto_palavras_max: req.body.texto_palavras_max,
         email_dominio: req.body.email_dominio,
         data_minima: req.body.data_minima,
         data_maxima: req.body.data_maxima,

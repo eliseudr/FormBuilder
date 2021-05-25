@@ -2,14 +2,15 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes, nomeTable = "form_config") => {
-  class SetFormConfig extends Model {}
-  SetFormConfig.init(
+  class FormConfig extends Model {}
+  FormConfig.init(
     {
+      // Column ID auto generated
       texto_tam_exato: DataTypes.INTEGER,
       texto_tam_minimo: DataTypes.INTEGER,
       texto_tam_maximo: DataTypes.INTEGER,
       texto_palavras_min: DataTypes.INTEGER,
-      texto_palavras_maximo: DataTypes.INTEGER,
+      texto_palavras_max: DataTypes.INTEGER,
       email_dominio: DataTypes.STRING,
       data_minima: DataTypes.DATE,
       data_maxima: DataTypes.DATE,
@@ -23,5 +24,5 @@ module.exports = (sequelize, DataTypes, nomeTable = "form_config") => {
       timestamps: false,
     }
   );
-  return SetFormConfig;
+  return FormConfig;
 };

@@ -4,7 +4,7 @@ const port = 3000;
 
 const buildForm = require("./api/routes/build_form");
 const setConfig = require("./api/routes/set_formConfig");
-const validateForm = require("./api/routes/validade_form");
+const buildFormInfo = require("./api/routes/build_form_info");
 
 const app = express();
 
@@ -24,8 +24,9 @@ app.use("/form_config", setConfig);
 // Create the form
 app.use("/build_form", buildForm);
 
-// Associate the Data with the Form built
-//app.use("/form_questions", buildQuestions);
+// Associate the Data with the relative Form
+// This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
+app.use("/form_info", buildFormInfo);
 // ----------------------------------------------------------------
 
 // Trata o erro 404 de endpoint não encontrado.

@@ -16,6 +16,20 @@ var getSequelize = function (nomedb) {
     });
   };
 
+//Method from: https://stackoverflow.com/questions/18679576/counting-words-in-string/30335883
+function countWords(str) {
+    var matches = str.match(/[\w\d\’\'-]+/gi);
+    return matches ? matches.length : 0;
+  }
+
+// This is not practical and might be replaced in the near future.
+// This function split the string in 2 at '@'
+async function getDominio(str){
+    return str.split('@')[1];
+  }
+
 module.exports = {
     getSequelize,
+    countWords,
+    getDominio,
 }

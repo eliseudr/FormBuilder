@@ -61,7 +61,7 @@ FOREIGN KEY (id_form) REFERENCES form(id)
     "texto_tam_minimo": 1,
     "texto_tam_maximo": null,
     "texto_palavras_min": 5,
-    "texto_palavras_maxima": 300,
+    "texto_palavras_max": 300,
     "email_dominio": "hotmail.com, gmail.com, outlook.com, yahoo.com",
     "data_minima": "2021-05-23 23:59",
     "data_maxima": "2021-05-30 00:01",
