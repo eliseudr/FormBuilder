@@ -1,18 +1,67 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const BuildFormInfo = require("../models/build_form_info");
+const FormConfig = require("../models/formConfig");
+const BuildForm = require("../models/build_form");
 const helpers = require("../helpers/helpers");
+
+/**
+ * Return the configuration set for this form
+ * 
+ * @param {integer} id_form_config
+ * @private 
+ */
+ async function getFormConfig_(id, sequelize){
+  const config = await FormConfig(
+    sequelize,
+    Sequelize.DataTypes,
+    'form_config'
+  ).findOne({ 
+    where: { 
+      id: id
+    },
+  });
+  return config;
+}
+
+// Search for the relative form...
+ async function getIdForm_(id_form, sequelize){
+  const form = await BuildForm(
+    sequelize,
+    Sequelize.DataTypes,
+    'forms'
+  ).findOne({ 
+    where: { 
+      id: id_form
+    },
+  },
+ 
+  );
+  return form;
+}
+
+// funcion wich validates the request body
+async function validateInfo(config, req, res) {
+ // Checks the word count if it's more or less the set in the config
+  // By now this is validating using the same field as 'TEXTO'
+  let qtdPalavras = helpers.countWords(req.body.opcao);
+  console.log(qtdPalavras);
+  console.log(config.texto_palavras_min)
+  if(config.texto_palavras_min > qtdPalavras){
+    res.status(400).send(`The amount of words is less then needed: '${config.texto_palavras_min}'`);
+  }else if(config.texto_palavras_max < qtdPalavras){
+    res.status(400).send(`The amount of words is more then needed: '${config.texto_palavras_max}'`);
+  }
+}
 
 module.exports = {
   async create(req, res) {
     var sequelize = helpers.getSequelize(req.query.nomedb);
+    // Now we have the form ID... But still missing it's configurations
+    const form = await getIdForm_(req.body.id_form, sequelize);
+    // After calling getFormConfig we got the configuration
+    const config = await getFormConfig_(form.id_form_config, sequelize);
 
-    //  // Checks the word count if it's more or less the set in the config
-    // let qtdPalavras = helpers.countWords(req.body.texto);
-    // if(config.texto_palavras_min > qtdPalavras){
-    //   res.status(400).send(`The amount of words is less then needed: '${config.texto_palavras_min}'`);
-    // }else if(config.texto_palavras_max < qtdPalavras){
-    //   res.status(400).send(`The amount of words is more then needed: '${config.texto_palavras_max}'`);
-    // }
+    await validateInfo(config, req, res);
 
     try {
       await BuildFormInfo(

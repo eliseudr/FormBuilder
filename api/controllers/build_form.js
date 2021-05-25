@@ -59,6 +59,13 @@ async function validateForm(config, req, res) {
   }else if(config.texto_tam_minimo !== null && config.qtd_respostas_max > req.body.qtd_respostas_max){
     res.status(400).send('The amount of answers is heigher than expected');
   }
+  // Checks the wordcount, if it's more or less the set in the config
+  let qtdPalavras = helpers.countWords(req.body.texto);
+  if(config.texto_palavras_min > qtdPalavras){
+    res.status(400).send(`The amount of words is less then needed: '${config.texto_palavras_min}'`);
+  }else if(config.texto_palavras_max < qtdPalavras){
+    res.status(400).send(`The amount of words is more then needed: '${config.texto_palavras_max}'`);
+  }
 }
 
 module.exports = {
@@ -66,39 +73,26 @@ module.exports = {
     var sequelize = helpers.getSequelize(req.query.nomedb);
     const config = await getFormConfig_(req.body.id_form_config, sequelize);
     try{
-      await validateForm(config, req, res);
 
-    // // Checks the word count if it's more or less the set in the config
-    // let qtdPalavras = helpers.countWords(req.body.texto);
-    // if(config.texto_palavras_min > qtdPalavras){
-    //   res.status(400).send(`The amount of words is less then needed: '${config.texto_palavras_min}'`);
-    // }else if(config.texto_palavras_max < qtdPalavras){
-    //   res.status(400).send(`The amount of words is more then needed: '${config.texto_palavras_max}'`);
-    // }
+    await validateForm(config, req, res);
     
     await BuildForm(
       sequelize,
       Sequelize.DataTypes,
     ).create({
       texto: req.body.texto,
-      // Validates the the column 'email', according to it's configuration.
       email: req.body.email,
-      // Validates the the column 'data_minima', according to it's configuration.
       data_minima: req.body.data_minima,
-      // Validates the the column 'data_maxima, according to it's configuration.
       data_maxima: req.body.data_maxima,
-      // Validates the the column 'qtd_opcoes_lista_suspensa', according to it's configuration.
       qtd_opcoes_lista_suspensa: req.body.qtd_opcoes_lista_suspensa,
-      // Validates the the column 'qtd_respostas_min', according to it's configuration.
       qtd_respostas_min: req.body.qtd_respostas_min,
-      // Validates the the column 'qtd_respostas_max', according to it's configuration.
       qtd_respostas_max: req.body.qtd_respostas_max,
       id_form_config: req.body.id_form_config,
       // id_usuario: req.body.id_usuario (USER WHO INSERT THIS FORM),
     });
       // Next step is to POST all the info about this Form
       // Use `helpers` to extrect all mesages.
-      res.status(200).send(`Form created succesefully...`);
+      res.status(200).send('Form created succesefully...');
     } catch (error) {
       console.log(error);
       res.status(500).send({ error: error });
