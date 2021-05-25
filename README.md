@@ -10,11 +10,10 @@ This API is contains 3 Endpoint at the moment
 # "/form_config" *Set rules for validation*
 # "/build_form" *Create the form* - 
   Obs: this end point dont include the info about the form
-# "/form_info" *Associate the Data with the relative Form* - 
-    This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
+# "/form_info" *Associate the Data with the relative Form* - This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
 
 *form_config*
-![Endpoint form_config](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
+![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
 
 this Endpoint set the following values,
   "texto_tam_exato": The exact size for the field 'TEXT', (Be carefull with this),
