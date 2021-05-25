@@ -44,13 +44,14 @@ async function validateInfo(config, req, res) {
  // Checks the word count if it's more or less the set in the config
   // By now this is validating using the same field as 'TEXTO'
   let qtdPalavras = helpers.countWords(req.body.opcao);
-  console.log(qtdPalavras);
-  console.log(config.texto_palavras_min)
-  if(config.texto_palavras_min > qtdPalavras){
+  if(config.texto_palavras_min !== null && config.texto_palavras_min > qtdPalavras){
     res.status(400).send(`The amount of words is less then needed: '${config.texto_palavras_min}'`);
-  }else if(config.texto_palavras_max < qtdPalavras){
+  }else if(config.texto_palavras_max !== null && config.texto_palavras_max < qtdPalavras){
     res.status(400).send(`The amount of words is more then needed: '${config.texto_palavras_max}'`);
   }
+
+  // Next - Limit the info that can be added to the amount of "qtd_lista_suspensa" set int the table 'FORMS'
+
 }
 
 module.exports = {

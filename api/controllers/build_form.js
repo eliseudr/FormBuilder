@@ -27,7 +27,7 @@ async function getFormConfig_(id, sequelize){
 async function validateForm(config, req, res) {
    // Checks the text, only accepts the same size as set on the config
    if(config.texto_tam_exato !== null && config.texto_tam_exato != req.body.texto.length) {
-    res.status(400).send('Text size is wrong');
+    res.status(400).send('Text size of the text is wrong');
   }
   // Checks for the minimum size of the text input
   else if (config.texto_tam_minimo !== null && config.texto_tam_minimo > req.body.texto.length) {
@@ -70,7 +70,7 @@ async function validateForm(config, req, res) {
 
 module.exports = {
   async create(req, res) {
-    var sequelize = helpers.getSequelize(req.query.nomedb);
+    var sequelize = await helpers.getSequelize(req.query.nomedb);
     const config = await getFormConfig_(req.body.id_form_config, sequelize);
     try{
 
