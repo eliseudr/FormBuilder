@@ -1,12 +1,12 @@
 *FORM BUILDER* ( Simple API + Validation)
-## --------------------------------------------------------------------------------##
+## --------------------------------------------------------------------------------##  
 HOW TO RUN THIS CODE
 
-#1 - Download or clone this repository,
-#2 - Create the [Database](https://github.com/eliseudr/FormBuilder/tree/master/database)
-#3 - *npm install*
-#4 - Change the function getSequelize to your SQL settings, your username and password.
-#5 - *npm start* to iniciate the API
+1 - Download or clone this repository,  
+2 - Create the [Database](https://github.com/eliseudr/FormBuilder/tree/master/database)  
+3 - *npm install*  
+4 - Change the function getSequelize to your SQL settings, your username and password.  
+5 - *npm start* to iniciate the API
 
 ## --------------------------------------------------------------------------------##
 
@@ -18,7 +18,7 @@ This API is contains 3 Endpoint at the moment
 # "/form_info" *Associate the Data with the relative Form* - 
   This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
 
-form_config
+form_config  
 
 ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
 
