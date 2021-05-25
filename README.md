@@ -31,3 +31,10 @@ this Endpoint set the following values,
   "data_maxima": The maximum date for the form,
   "qtd_respostas_min": The amount of answer, Default = 1.
   "qtd_respostas_max": The maximun amount of answer.
+  
+  *This is how it will look on the Database*
+  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)
+  
+  You can check the rest of images here [Images Endpoints and Database](https://github.com/eliseudr/FormBuilder/tree/master/images)
+  
