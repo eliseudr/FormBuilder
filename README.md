@@ -2,11 +2,11 @@
 ## --------------------------------------------------------------------------------##
 HOW TO RUN THIS CODE
 
-1 - Download or clone this repository,
-2 - Create the [Database](https://github.com/eliseudr/FormBuilder/tree/master/database)
-3 - *npm install*
-4 - Change the function getSequelize to your SQL settings, your username and password.
-5 - *npm start* to iniciate the API
+#1 - Download or clone this repository,
+#2 - Create the [Database](https://github.com/eliseudr/FormBuilder/tree/master/database)
+#3 - *npm install*
+#4 - Change the function getSequelize to your SQL settings, your username and password.
+#5 - *npm start* to iniciate the API
 
 ## --------------------------------------------------------------------------------##
 
