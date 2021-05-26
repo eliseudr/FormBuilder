@@ -15,11 +15,12 @@ This API is contains 3 Endpoint at the moment
 ## "/form_info" *Associate the Data with the relative Form* - 
   This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
 
-#form_config  
+FORM_CONFIG 
 
 ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
 
-this Endpoint set the following values,  
+this Endpoint set the following values,
+```
   "texto_tam_exato": The exact size for the field 'TEXT', (Be carefull with this),   
   "texto_tam_minimo": A minimum size for the 'Text',  
   "texto_tam_maximo": A maximum size for the 'Text',  
@@ -30,12 +31,13 @@ this Endpoint set the following values,
   "data_maxima": The maximum date for the form,  
   "qtd_respostas_min": The amount of answer, Default = 1.  
   "qtd_respostas_max": The maximun amount of answer.  
+  ```
   
   *This is how it will look on the Database*  
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)
   
-# forms  
+FORMS
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildform.png)
 
@@ -45,7 +47,7 @@ this Endpoint will insert a new form,
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_forms.png)  
   
-# form_info  
+FORM_INFO 
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildinfo.png)
 
