@@ -14,7 +14,8 @@ This API is contains 3 Endpoint at the moment
   Obs: this end point dont include the info about the form
 ## "/form_info" *Associate the Data with the relative Form* - 
   This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
-
+  
+    
 FORM_CONFIG 
 
 ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
@@ -37,7 +38,8 @@ this Endpoint set the following values,
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)
   
-======  
+  
+    
 FORMS
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildform.png)
@@ -48,7 +50,8 @@ this Endpoint will insert a new form,
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_forms.png)  
   
-======  
+
+  
 FORM_INFO 
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildinfo.png)
