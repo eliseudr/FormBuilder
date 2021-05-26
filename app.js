@@ -8,10 +8,7 @@ const buildFormInfo = require("./api/routes/build_form_info");
 
 const app = express();
 
-app.listen(
-  port,
-  () => console.log(`server is runing on http://localhost:${port}`)
-);
+// app.listen(port);
 
 app.use(morgan("dev"));
 app.use(express.json({ limit: "50mb" }));
