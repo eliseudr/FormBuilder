@@ -9,6 +9,7 @@
 5 - *npm start* to iniciate the API
 
 This API is contains 3 Endpoint at the moment
+## Validation is done inside each controller
 ## "/form_config" *Set rules for validation*
 ## "/build_form" *Create the form* - 
   Obs: this end point dont include the info about the form
