@@ -37,6 +37,7 @@ this Endpoint set the following values,
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)
   
+======  
 FORMS
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildform.png)
@@ -47,11 +48,12 @@ this Endpoint will insert a new form,
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_forms.png)  
   
+======  
 FORM_INFO 
   
   ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildinfo.png)
 
-this Endpoint will insert a new form,
+this Endpoint will insert the info of the form,
   
   *This is how it will look on the Database*  
   
