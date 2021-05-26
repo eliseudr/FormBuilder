@@ -8,15 +8,14 @@
 4 - Change the function getSequelize to your SQL settings, your username and password.  
 5 - *npm start* to iniciate the API
 
-#This API is contains 3 Endpoint at the moment
-
+This API is contains 3 Endpoint at the moment
 ## "/form_config" *Set rules for validation*
 ## "/build_form" *Create the form* - 
   Obs: this end point dont include the info about the form
 ## "/form_info" *Associate the Data with the relative Form* - 
   This can be optimized latter adding an exact number of information to be added this way the Endpoint will be called only one time.
 
-###form_config  
+#form_config  
 
 ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_formconfig.png)
 
@@ -34,7 +33,26 @@ this Endpoint set the following values,
   
   *This is how it will look on the Database*  
   
-  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_formconfig.png)
   
-  You can check the rest of images here [Images Endpoints and Database](https://github.com/eliseudr/FormBuilder/tree/master/images)  
+# forms  
+  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildform.png)
+
+this Endpoint will insert a new form,
+  
+  *This is how it will look on the Database*  
+  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_forms.png)  
+  
+# form_info  
+  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/Endpoint_buildinfo.png)
+
+this Endpoint will insert a new form,
+  
+  *This is how it will look on the Database*  
+  
+  ![](https://github.com/eliseudr/FormBuilder/blob/master/images/db_form_info.png)   
+  
   
